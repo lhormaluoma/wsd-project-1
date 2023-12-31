@@ -1,0 +1,42 @@
+<% layout("./layouts/layout.eta") %>
+
+<div class="title-bar">
+    <div class="title-bar-text">Lists</div>
+</div>
+
+<div class="window active" style = "max-width: 70%; margin: 0 auto; margin-top: 20px; ">
+    <div class="title-bar">
+        <div class="title-bar-text">Add a list</div>
+    </div>
+    <div class="window-body has-space">
+        <form method="POST">
+        Name: <input type="text" name="name" />
+        <input type="submit" value="Create list!" />
+        </form>
+    </div>
+</div>
+
+<div class="window active" style = "max-width: 70%; margin: 0 auto; margin-top: 20px;">
+    <div class="title-bar">
+        <div class="title-bar-text">Active lists</div>
+    </div>
+    <div class="window-body has-space">
+        <ul>
+            <% it.lists.forEach((list) => { %>
+            <div>
+            <li>
+                <a href="/lists/<%= list.id %>" style = "padding-right: 5px; display:inline-block;"><p style = "padding-bottom: 3px;"><%= list.name %></p></a> 
+                <form method="POST" action="/lists/<%= list.id %>/deactivate" style = "display:inline-block;">
+                <input type="submit" value="Deactivate list!" />
+                </form>
+            </li>
+            </div>
+            <% }); %>
+        </ul>
+    </div>
+</div>
+
+</div>
+<div style = "margin: 0 auto; margin-top: 20px;">
+<a href="/" style = "padding-top: 50px;"><button>Main page</button></a>
+</div>

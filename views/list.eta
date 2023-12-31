@@ -1,0 +1,45 @@
+<% layout("./layouts/layout.eta") %>
+
+<div class="title-bar">
+    <div class="title-bar-text"><%= it.list.name %></div>
+</div>
+
+<div class="window active" style = "max-width: 70%; margin: 0 auto; margin-top: 20px; ">
+    <div class="title-bar">
+        <div class="title-bar-text">Add an item to the list</div>
+    </div>
+    <div class="window-body has-space">
+        <form method="POST" action="/lists/<%=it.list.id%>/items">
+        Name: <input type="text" name="name" />
+        <input type="submit" value="Add item!" />
+        </form>
+    </div>
+</div>
+
+<div class="window active" style = "max-width: 70%; margin: 0 auto; margin-top: 20px;">
+    <div class="title-bar">
+        <div class="title-bar-text">Shopping list</div>
+    </div>
+    <div class="window-body has-space">
+        <ul>
+            <% it.items.forEach((item) => { %>
+            <div>
+            <li>
+            <% if (!item.collected) {%>
+                <p style = "padding-bottom: 3px; display: inline-block;"><%= item.name %></p>
+                <form method="POST" action="/lists/<%= it.list.id %>/items/<%= item.id%>/collect" style = "display:inline-block;">
+                <input type="submit" value="Mark collected!" />
+                </form>
+            <% } else { %>
+                <p style = "padding-bottom: 3px;"><del><%= item.name %></del></p>
+            <% } %>
+            </li>
+            </div>
+            <% }); %>
+        </ul>
+    </div>
+</div>
+<div style = "padding-top: 10px;">
+<a href="/lists"><button style = "display: inline-block;">Back to all lists</button></a>
+<a href="/"><button style = "display: inline-block;">Back to main</button></a>
+</div>

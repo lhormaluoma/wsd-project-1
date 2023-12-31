@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://unpkg.com/7.css">
+</head>
+<body>
+<div style = "width: 60%; margin: 0 auto;">
+<div class="win7">
+    <%~ it.body %>
+</div>
+</div>
+</body>
+</html>
