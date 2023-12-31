@@ -9,11 +9,11 @@
         <div class="title-bar-text">Statistics</div>
     </div>
     <div class="window-body has-space">
-    <% if (it.count === 0) { %>
-        <h4>No shopping lists yet</h4>
+    <% if (it.count > 0) { %>
+        <h4>Shopping lists: <%=it.count%></h4>
+        <h4>Shopping list items: <%=it.countItems%></h4>
     <% } else { %>
-        <h4>All lists: <%=it.count%></h4>
-        <h4>All items: <%=it.countItems%></h4>
+        <h4>No shopping lists yet.</h4>    
     <% } %>
     </div>
 </div>
