@@ -6,7 +6,9 @@
 <body>
 <div style = "width: 60%; margin: 0 auto;">
 <div class="win7">
+  <body>
     <%~ it.body %>
+  </body>
 </div>
 </div>
 </body>
